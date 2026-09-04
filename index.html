@@ -5152,22 +5152,36 @@ document.querySelectorAll('.swatch-wrap').forEach(wrap => {
   });
 });
       // ==============================================================
-      // STICKY BAR (aparece quando buy section sai do ecrã)
+      // STICKY BAR (aparece só ao rolar pra baixo, depois de passar da
+      // seção de compra — some ao rolar pra cima pra não tampar o conteúdo)
       // ==============================================================
       const buySection = document.querySelector('.buy-section');
       const stickyBar = document.querySelector('.sticky-bar');
       if (buySection && stickyBar) {
-        let seen = false;
+        let pastBuySection = false;
+        let lastScrollY = window.scrollY;
+
         const obs = new IntersectionObserver(entries => {
           const entry = entries[0];
+          pastBuySection = !entry.isIntersecting && entry.boundingClientRect.top < 0;
           if (entry.isIntersecting) {
-            seen = true;
             stickyBar.classList.remove('visible');
-          } else if (seen) {
-            stickyBar.classList.add('visible');
           }
         }, { threshold: 0 });
         obs.observe(buySection);
+
+        window.addEventListener('scroll', () => {
+          const currentY = window.scrollY;
+          const scrollingDown = currentY > lastScrollY;
+          if (pastBuySection) {
+            if (scrollingDown) {
+              stickyBar.classList.add('visible');
+            } else {
+              stickyBar.classList.remove('visible');
+            }
+          }
+          lastScrollY = currentY;
+        }, { passive: true });
       }
 
       // ==============================================================
@@ -5691,7 +5705,7 @@ document.querySelectorAll('.swatch-wrap').forEach(wrap => {
       window.showAddedToast = showAddedToast;
 
       const variantConfig = {
-        'Pink': { img: 'images/pink/1.webp' },
+        'Pink': { img: 'images/pink/set.webp' },
         'Purple': { img: 'images/purple/1.webp' }
       };
 
