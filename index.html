@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3L Hybrid Sauté Pan with Lid | The Cookery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#F5F1E8;
+    --black-2:#EAE4D8;
+    --panel:#FAF8F3;
+    --green:#18352B;
+    --green-2:#1E4536;
+    --green-line:#325947;
+    --red:#18352B;
+    --red-dark:#132A22;
+    --white:#1C1C1A;
+    --gray:#6B6862;
+    --line:rgba(28,28,26,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--white);
+    background:var(--black);
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1240px; margin:0 auto; padding:0 24px;}
+  h1,h2,h3{font-family:'DM Serif Display', serif; font-weight:400; letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:'Inter', sans-serif;
+    font-size:11.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+
+  /* ANNOUNCEMENT BAR */
+  .announce{
+    background:var(--green);
+    color:#FAF8F3;
+    text-align:center;
+    font-family:'Inter', sans-serif;
+    font-size:12px;
+    letter-spacing:0.06em;
+    padding:9px 16px;
+    border-bottom:1px solid var(--green-line);
+  }
+  .announce b{color:#FAF8F3;}
+
+  /* HEADER */
+  header.site{
+    background:var(--black);
+    border-bottom:1px solid var(--line);
+    position:sticky; top:0; z-index:50;
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    position:relative;
+    padding:16px 24px;
+    max-width:1240px; margin:0 auto;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    position:absolute; left:50%; top:50%;
+    transform:translate(-50%,-50%);
+  }
+  .logo-mark{
+    width:34px; height:34px;
+    border-radius:50%;
+    border:1.5px solid #4B9C6D;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .logo-mark svg{width:19px; height:19px; stroke:#4B9C6D;}
+  .logo-text{
+    font-family:'DM Serif Display', serif;
+    font-weight:400;
+    font-size:22px;
+    letter-spacing:-0.01em;
+    color:var(--white);
+    line-height:1;
+    display:flex; flex-direction:column;
+  }
+  .logo-text .the{
+    font-family:'Inter', sans-serif;
+    font-size:9.5px;
+    font-weight:600;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--gray);
+    margin-bottom:3px;
+  }
+  .logo-text .cookery{
+    font-style:italic;
+    color:#18352B;
+    font-size:22px;
+  }
+  .header-cta{display:flex; align-items:center; gap:22px;}
+
+  .cart-btn{
+    position:relative;
+    width:38px; height:38px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+  }
+  .cart-btn:hover{border-color:var(--white);}
+  .cart-btn svg{width:18px; height:18px; stroke:var(--white);}
+  .cart-count{
+    position:absolute; top:-7px; right:-7px;
+    background:var(--red); color:#fff;
+    font-family:'Inter', sans-serif;
+    font-size:10px; font-weight:700;
+    width:17px; height:17px; border-radius:50%;
+    display:none;
+    align-items:center; justify-content:center;
+    border:1.5px solid var(--black);
+  }
+  .cart-count.show{display:flex;}
+
+  /* ===== LIGHTBOX ===== */
+  .gallery-main, .gallery-grid-item{ cursor: zoom-in; }
+  .lightbox{
+    position:fixed; inset:0; z-index:100;
+    display:none; align-items:center; justify-content:center;
+  }
+  .lightbox.show{ display:flex; }
+  .lightbox-overlay{
+    position:absolute; inset:0; background:rgba(0,0,0,0.9);
+  }
+  .lightbox-content{
+    position:relative; z-index:1;
+    max-width:90vw; max-height:85vh;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .lightbox-content img{
+    max-width:90vw; max-height:85vh; object-fit:contain;
+    border:1px solid var(--line);
+  }
+  .lightbox-close{
+    position:absolute; top:20px; right:20px; z-index:2;
+    width:40px; height:40px; border-radius:50%;
+    background:var(--black-2); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+  }
+  .lightbox-close svg{width:16px; height:16px; stroke:var(--white);}
+  .lightbox-arrow{
+    position:absolute; top:50%; transform:translateY(-50%); z-index:2;
+    width:44px; height:44px; border-radius:50%;
+    background:var(--black-2); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+  }
+  .lightbox-arrow svg{width:18px; height:18px; stroke:var(--white);}
+  .lightbox-prev{ left:16px; }
+  .lightbox-next{ right:16px; }
+  @media(min-width:760px){
+    .lightbox-prev{ left:24px; }
+    .lightbox-next{ right:24px; }
+  }
+  .lightbox-counter{
+    position:absolute; bottom:-34px; left:50%; transform:translateX(-50%);
+    font-family:'Inter', sans-serif; font-size:12px; color:var(--gray);
+  }
+
+  /* ===== CART DRAWER ===== */
+  .cart-overlay{
+    position:fixed; inset:0; background:rgba(0,0,0,0.6);
+    opacity:0; pointer-events:none; transition:opacity .25s ease;
+    z-index:90;
+  }
+  .cart-overlay.show{opacity:1; pointer-events:auto;}
+
+  .cart-drawer{
+    position:fixed; top:0; right:0; height:100%;
+    width:100%; max-width:400px;
+    background:var(--black-2);
+    border-left:1px solid var(--line);
+    z-index:95;
+    display:flex; flex-direction:column;
+    transform:translateX(100%);
+    transition:transform .3s ease;
+  }
+  .cart-drawer.show{transform:translateX(0);}
+
+  .cart-header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px; border-bottom:1px solid var(--line);
+  }
+  .cart-header h3{
+    display:flex; align-items:center; gap:10px;
+    font-family:'DM Serif Display', serif; font-weight:400; font-size:18px; color:var(--white);
+  }
+  .cart-header h3 svg{width:18px; height:18px; stroke:var(--white);}
+  .cart-close{
+    width:32px; height:32px; border:1px solid var(--line); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;
+  }
+  .cart-close:hover{border-color:var(--white);}
+  .cart-close svg{width:13px; height:13px; stroke:var(--white);}
+
+  .cart-delivery{
+    background:var(--green); border-bottom:1px solid var(--green-line);
+    padding:12px 20px; display:flex; align-items:center; gap:10px;
+    font-family:'Inter', sans-serif; font-size:11.5px; letter-spacing:0.02em;
+    color:#7FC79A;
+  }
+  .cart-delivery svg{width:16px; height:16px; stroke:#7FC79A; flex-shrink:0;}
+
+  .cart-items{flex:1; overflow-y:auto; padding:4px 20px;}
+  .cart-item{
+    display:grid; grid-template-columns:60px 1fr auto;
+    gap:14px; padding:18px 0; border-bottom:1px solid var(--line);
+  }
+  .cart-item-img{
+    width:60px; height:60px; background:var(--panel); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden;
+  }
+  .cart-item-img img{width:100%; height:100%; object-fit:cover;}
+  .cart-item-img svg{width:60%; height:60%;}
+  .cart-item-info .brand{
+    font-family:'Inter', sans-serif; font-size:9.5px; letter-spacing:0.09em;
+    text-transform:uppercase; color:var(--gray); margin-bottom:3px;
+  }
+  .cart-item-info .name{font-weight:600; font-size:14px; color:var(--white); margin-bottom:6px; line-height:1.25;}
+  .cart-item-info .meta{font-size:12px; color:var(--gray); line-height:1.6;}
+  .promo-tag{color:#18352B; font-weight:600;}
+  .cart-item-right{display:flex; flex-direction:column; align-items:flex-end; justify-content:space-between;}
+  .cart-item-price{font-family:'Inter', sans-serif; font-weight:600; font-size:14px; color:var(--white); white-space:nowrap;}
+  .cart-item-delete{width:26px; height:26px; display:flex; align-items:center; justify-content:center; cursor:pointer;}
+  .cart-item-delete svg{width:15px; height:15px; stroke:var(--gray);}
+  .cart-item-delete:hover svg{stroke:var(--red);}
+
+  .cart-empty{
+    padding:70px 20px; text-align:center; color:var(--gray);
+    font-family:'Inter', sans-serif; font-size:12.5px; line-height:1.7;
+  }
+
+  .cart-footer{border-top:1px solid var(--line); padding:20px;}
+  .cart-row{display:flex; justify-content:space-between; font-size:13.5px; color:var(--gray); margin-bottom:10px;}
+  .cart-row.total{
+    font-weight:700; font-size:16px; color:var(--white);
+    margin-top:14px; padding-top:14px; border-top:1px solid var(--line);
+    font-family:'Inter', sans-serif;
+  }
+  .cart-checkout{
+    width:100%; background:var(--red); color:#fff; border:none;
+    padding:16px; border-radius:3px; font-weight:700; font-size:14.5px;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    margin-top:16px; cursor:pointer; font-family:'Inter', sans-serif;
+  }
+  .cart-checkout:hover{background:var(--red-dark);}
+  .cart-checkout svg{width:14px; height:14px; stroke:#fff;}
+  .cart-secure{
+    text-align:center; font-family:'Inter', sans-serif; font-size:10px;
+    color:var(--gray); margin-top:12px; display:flex; align-items:center; justify-content:center; gap:6px;
+  }
+  .cart-secure svg{width:11px; height:11px; stroke:var(--gray);}
+  .cart-payments{display:flex; justify-content:center; gap:6px; margin-top:14px; flex-wrap:wrap;}
+  .cart-payments span{
+    border:1px solid var(--line); padding:4px 8px; border-radius:2px;
+    font-family:'Inter', sans-serif; font-size:9px; color:var(--gray);
+  }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    gap:8px;
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:0.01em;
+    padding:15px 26px;
+    border-radius:3px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn-primary{background:var(--red); color:#fff;}
+  .btn-primary:hover{background:var(--red-dark);}
+  .btn-primary:active{transform:scale(0.98);}
+  .btn-ghost{background:transparent; color:var(--white); border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--white);}
+  .btn-block{width:100%;}
+  .btn-sm{padding:10px 18px; font-size:13px;}
+
+  /* ===== PRODUCT TOP: GALLERY + BUY BOX ===== */
+  .product-top{padding:40px 0 0;}
+  .breadcrumb{
+    font-family:'Inter', sans-serif;
+    font-size:11px; letter-spacing:0.04em; color:var(--gray);
+    margin-bottom:26px;
+  }
+  .breadcrumb a{color:var(--gray);}
+  .breadcrumb a:hover{color:var(--white);}
+
+  .product-grid{
+    display:grid; grid-template-columns:1fr;
+    gap:44px;
+  }
+  @media(min-width:960px){
+    .product-grid{grid-template-columns:1.25fr 0.85fr; align-items:start;}
+  }
+
+  /* GALLERY */
+  .gallery-main-wrap{position:relative; margin-bottom:10px;}
+  .gallery-main{
+    background:var(--panel);
+    border:1px solid var(--line);
+    aspect-ratio:1/1;
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .gallery-main img{width:100%; height:100%; object-fit:cover;}
+  .quality-seal{
+    position:absolute; top:14px; right:14px;
+    width:88px; height:88px;
+    filter:drop-shadow(0 6px 14px rgba(0,0,0,0.25));
+    z-index:2;
+  }
+  @media(max-width:480px){ .quality-seal{width:68px; height:68px; top:10px; right:10px;} }
+  .gallery-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:10px;
+  }
+  .gallery-grid-item{
+    background:var(--panel);
+    border:1px solid var(--line);
+    aspect-ratio:1/1;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    overflow:hidden;
+  }
+  .gallery-grid-item img{width:100%; height:100%; object-fit:cover;}
+  .gallery-grid-item.active{border-color:#4B9C6D;}
+  .pan-illustration{width:60%; height:auto;}
+  .pan-illustration.small{width:70%;}
+  .photo-note{
+    font-family:'Inter', sans-serif;
+    font-size:10.5px; color:var(--gray);
+    margin-top:14px; letter-spacing:0.03em;
+  }
+
+  /* BUY BOX */
+  .buybox{
+    position:sticky; top:88px;
+  }
+  .buybox h1{
+    font-size:clamp(24px,2.6vw,30px);
+    line-height:1.15;
+    margin-bottom:10px;
+  }
+  .reviews-line{
+    font-family:'Inter', sans-serif;
+    font-size:12px; color:#18352B; letter-spacing:0.03em;
+    margin-bottom:14px;
+  }
+  .reviews-line span{color:var(--gray);}
+
+  .launch-banner{
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--green); border:1px solid var(--green-line);
+    padding:10px 14px; margin-bottom:16px;
+    border-radius:3px;
+  }
+  .launch-banner-label{
+    font-family:'Inter', sans-serif; font-size:12.5px; font-weight:600; color:#FAF8F3;
+  }
+  .launch-banner-timer{
+    font-family:'Inter', sans-serif; font-size:12px; font-weight:600;
+    color:#FAF8F3; font-variant-numeric:tabular-nums;
+  }
+  .launch-banner.expired{display:none;}
+
+  .mini-trust-row{
+    display:flex; flex-wrap:wrap; gap:14px;
+    margin-bottom:24px;
+  }
+  .mini-trust-row span{
+    display:flex; align-items:center; gap:6px;
+    font-family:'Inter', sans-serif; font-size:11.5px; color:var(--gray);
+  }
+  .mini-trust-row svg{width:15px; height:15px; stroke:#18352B; flex-shrink:0;}
+
+  .guarantee-callout{
+    display:flex; align-items:flex-start; gap:10px;
+    background:rgba(24,53,43,0.06); border:1px solid rgba(24,53,43,0.18);
+    padding:13px 14px; margin-top:14px; border-radius:3px;
+  }
+  .guarantee-callout svg{width:18px; height:18px; stroke:#18352B; flex-shrink:0; margin-top:1px;}
+  .guarantee-callout span{font-family:'Inter', sans-serif; font-size:12.5px; line-height:1.5; color:var(--white);}
+  .guarantee-callout b{color:#18352B;}
+
+  .price-row{
+    display:flex; align-items:baseline; gap:12px;
+    padding-bottom:22px; margin-bottom:22px;
+    border-bottom:1px solid var(--line);
+  }
+  .price-now{font-family:'Inter', sans-serif; font-size:30px; font-weight:700;}
+  .price-was{font-size:15px; color:var(--gray); text-decoration:line-through;}
+
+  .variant-label{
+    font-family:'Inter', sans-serif;
+    font-size:11px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--gray); margin-bottom:10px; display:block;
+  }
+  .variants{
+    display:flex; flex-wrap:wrap; gap:8px;
+    margin-bottom:22px;
+  }
+  .variant-chip{
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--white);
+    font-family:'Inter', sans-serif;
+    font-size:12.5px;
+    padding:10px 14px;
+    border-radius:2px;
+    cursor:pointer;
+  }
+  .variant-chip.active{border-color:#4B9C6D; background:rgba(75,156,109,0.12); color:#18352B;}
+
+  .qty-label{
+    font-family:'Inter', sans-serif;
+    font-size:11px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--gray); margin-bottom:10px; display:block;
+  }
+  .qty-row{
+    display:flex; align-items:stretch; gap:12px;
+    margin-bottom:10px;
+  }
+  .promo-note{
+    font-family:'Inter', sans-serif; font-size:12.5px; line-height:1.5;
+    color:var(--gray); margin-bottom:20px;
+  }
+  .promo-note b{color:#18352B;}
+  .qty-stepper{
+    display:flex; align-items:center;
+    border:1px solid var(--line);
+    border-radius:3px;
+    overflow:hidden;
+  }
+  .qty-stepper button{
+    background:transparent; border:none; color:var(--white);
+    width:42px; height:48px;
+    font-family:'Inter', sans-serif; font-size:16px;
+    cursor:pointer;
+  }
+  .qty-stepper button:hover{background:rgba(245,244,241,0.06);}
+  .qty-stepper .qty-value{
+    width:42px; text-align:center;
+    font-family:'Inter', sans-serif; font-size:14px;
+    border-left:1px solid var(--line); border-right:1px solid var(--line);
+    height:48px; display:flex; align-items:center; justify-content:center;
+  }
+
+  .btn-buynow{
+    background:var(--red); color:#fff;
+    font-size:15px; font-weight:700;
+    padding:17px 26px;
+  }
+  .btn-buynow:hover{background:var(--red-dark);}
+  .btn-addcart{
+    background:transparent; color:var(--white);
+    border:1px solid var(--line);
+    font-weight:600; font-size:13px;
+    padding:12px 18px;
+  }
+  .btn-addcart:hover{border-color:var(--white);}
+
+  .trust-list{
+    margin-top:26px;
+    display:flex; justify-content:space-between;
+    gap:8px;
+    padding:20px 6px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .trust-list .item{
+    display:flex; flex-direction:column; align-items:center;
+    gap:9px;
+    text-align:center;
+    flex:1;
+  }
+  .trust-list .item svg{width:22px; height:22px; stroke:var(--white); flex-shrink:0;}
+  .trust-list .item span{
+    font-family:'Inter', sans-serif;
+    font-size:10px; letter-spacing:0.04em; text-transform:uppercase;
+    color:var(--gray); line-height:1.4;
+  }
+
+  /* description under buy box */
+  .buy-desc{
+    margin-top:26px; padding-top:22px; border-top:1px solid var(--line);
+    font-size:14.5px; line-height:1.65; color:var(--gray);
+  }
+
+  /* TRUST BAR strip */
+  .trust-bar{background:var(--green); border-top:1px solid var(--green-line); border-bottom:1px solid var(--green-line); margin-top:60px;}
+  .trust-bar-inner{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:0;
+    padding:22px 24px; max-width:1240px; margin:0 auto;
+  }
+  .trust-item{
+    text-align:center;
+    font-family:'Inter', sans-serif;
+    font-size:11.5px; letter-spacing:0.05em; color:rgba(250,248,243,0.72);
+    border-right:1px solid var(--green-line);
+    padding:0 12px;
+  }
+  .trust-item:last-child{border-right:none;}
+  .trust-item b{display:block; font-family:'Inter', sans-serif; font-size:15px; font-weight:600; letter-spacing:0; color:#FAF8F3; margin-bottom:3px;}
+
+  /* SECTION SHARED */
+  section{padding:88px 0;}
+  .section-head{max-width:620px; margin-bottom:52px;}
+  .section-head .eyebrow{color:#4B9C6D; margin-bottom:14px; display:block;}
+  .section-head h2{font-size:clamp(28px,3.6vw,40px); line-height:1.1; color:var(--white);}
+  .tech .section-head h2{color:#FAF8F3;}
+
+  /* RECIPE CARD */
+  .recipe-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    display:grid; grid-template-columns:1fr;
+  }
+  @media(min-width:860px){ .recipe-card{grid-template-columns:0.9fr 1.1fr;} }
+  .recipe-media{
+    background:var(--green);
+    padding:44px 36px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    border-right:1px solid var(--green-line);
+  }
+  .recipe-media .stamp{
+    width:74px; height:74px; border-radius:50%;
+    border:1px solid #FAF8F3;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Inter', sans-serif;
+    font-size:10px; letter-spacing:0.05em; text-align:center;
+    color:#FAF8F3; margin-bottom:30px;
+  }
+  .recipe-media h3{font-size:24px; line-height:1.2; margin-bottom:14px; color:#FAF8F3;}
+  .recipe-media p{font-size:14.5px; line-height:1.6; color:rgba(250,248,243,0.72);}
+  .recipe-list{padding:40px 36px;}
+  .recipe-list-title{
+    font-family:'Inter', sans-serif;
+    font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--red); margin-bottom:22px; font-weight:600;
+  }
+  .ingredient{
+    display:grid; grid-template-columns:44px 1fr; gap:16px;
+    padding:16px 0; border-top:1px solid var(--line);
+  }
+  .ingredient:last-child{padding-bottom:0;}
+  .qty{font-family:'Inter', sans-serif; font-size:12px; font-weight:600; color:#18352B; padding-top:2px;}
+  .ingredient h4{font-weight:600; font-size:15.5px; margin-bottom:4px; color:var(--white);}
+  .ingredient p{font-size:14px; line-height:1.55; color:var(--gray);}
+
+  /* TECH STRIP */
+  .tech{background:var(--green); border-top:1px solid var(--green-line); border-bottom:1px solid var(--green-line);}
+  .tech-grid{display:grid; grid-template-columns:1fr; gap:1px; background:var(--green-line); border:1px solid var(--green-line);}
+  @media(min-width:760px){ .tech-grid{grid-template-columns:repeat(2,1fr);} }
+  .tech-cell{background:var(--green); padding:36px 32px;}
+  .tech-cell .num{font-family:'Inter', sans-serif; font-size:11px; color:#FAF8F3; letter-spacing:0.08em; display:block; margin-bottom:16px;}
+  .tech-cell h4{font-family:'DM Serif Display', serif; font-weight:400; font-size:19px; margin-bottom:10px; color:#FAF8F3;}
+  .tech-cell p{font-size:14.5px; line-height:1.6; color:rgba(250,248,243,0.72);}
+
+  /* SPECS */
+  .specs-grid{display:grid; grid-template-columns:1fr; gap:40px;}
+  @media(min-width:860px){ .specs-grid{grid-template-columns:1fr 1fr;} }
+  .spec-table{width:100%; border-collapse:collapse;}
+  .spec-table tr{border-bottom:1px solid var(--line);}
+  .spec-table tr:first-child{border-top:1px solid var(--line);}
+  .spec-table td{padding:15px 4px; font-size:14.5px; color:var(--white);}
+  .spec-table td:first-child{
+    font-family:'Inter', sans-serif; font-size:11.5px; letter-spacing:0.04em; text-transform:uppercase;
+    color:var(--gray); width:44%;
+  }
+  .care-box{background:var(--panel); border:1px solid var(--line); padding:30px 28px;}
+  .care-box h4{font-family:'DM Serif Display', serif; font-size:16px; margin-bottom:8px; margin-top:18px; color:var(--white);}
+  .care-box h4:first-child{margin-top:0;}
+  .care-box p{font-size:14px; line-height:1.6; color:var(--gray);}
+
+  /* TESTIMONIALS */
+  .testimonials{background:var(--black-2);}
+  .test-grid{display:grid; grid-template-columns:1fr; gap:24px;}
+  @media(min-width:760px){ .test-grid{grid-template-columns:repeat(3,1fr);} }
+  .test-card{background:var(--panel); border:1px solid var(--line); padding:28px 26px;}
+  .test-card-photo{
+    width:100%; aspect-ratio:4/3; overflow:hidden; margin:-28px -26px 20px;
+    width:calc(100% + 52px);
+  }
+  .test-card-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .stars{color:#18352B; font-size:13px; letter-spacing:2px; margin-bottom:14px;}
+  .test-card p.quote{font-size:15px; line-height:1.6; margin-bottom:16px; color:var(--white);}
+  .test-card .who{font-family:'Inter', sans-serif; font-size:11.5px; letter-spacing:0.04em; color:var(--gray);}
+  .placeholder-flag{text-align:center; margin-top:26px; font-family:'Inter', sans-serif; font-size:11px; color:var(--gray);}
+  .reviews-disclosure{
+    font-family:'Inter', sans-serif; font-size:11.5px; letter-spacing:0.02em;
+    color:var(--gray); margin-bottom:32px; margin-top:-24px;
+  }
+
+  /* FAQ */
+  .faq-item{border-top:1px solid var(--line);}
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-q{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 4px; cursor:pointer;
+    font-family:'Inter', sans-serif; font-weight:600; font-size:17px;
+    color:var(--white);
+  }
+  .faq-q .icon{font-family:'Inter', sans-serif; font-size:18px; color:var(--red); transition:transform .2s ease;}
+  .faq-item[open] .icon{transform:rotate(45deg);}
+  .faq-a{padding:0 4px 22px; font-size:14.5px; line-height:1.65; color:var(--gray); max-width:640px;}
+
+  /* FINAL CTA */
+  .final-cta{background:var(--green); border-top:1px solid var(--green-line); text-align:center;}
+  .final-cta h2{font-size:clamp(28px,4vw,42px); margin-bottom:16px; color:#FAF8F3;}
+  .final-cta p{font-size:16px; color:rgba(250,248,243,0.72); max-width:480px; margin:0 auto 32px;}
+
+  /* FOOTER */
+  footer{background:var(--black-2); color:var(--gray); padding:48px 0 28px; font-size:13px; border-top:1px solid var(--line);}
+  .footer-inner{
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px;
+    padding-bottom:28px; margin-bottom:24px; border-bottom:1px solid var(--line);
+  }
+  .footer-logo{font-family:'DM Serif Display', serif; color:var(--white); font-size:19px; margin-bottom:8px;}
+  .footer-links{display:flex; flex-wrap:wrap; gap:22px;}
+  .footer-links a:hover{color:var(--white);}
+  .footer-bottom{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; font-family:'Inter', sans-serif; font-size:11px; letter-spacing:0.04em;}
+
+  /* STICKY MOBILE BAR */
+  .sticky-bar{
+    position:fixed; bottom:0; left:0; right:0;
+    background:var(--black-2); border-top:1px solid var(--line);
+    padding:12px 18px;
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    z-index:60; box-shadow:0 -12px 30px -18px rgba(0,0,0,0.6);
+    transform:translateY(120%); transition:transform .3s ease;
+  }
+  .sticky-bar.show{transform:translateY(0);}
+  .sticky-bar .price-now{font-size:19px;}
+  .sticky-bar .btn{flex:1; max-width:220px;}
+</style>
+</head>
+<body>
+
+  <div class="announce">FREE UK DELIVERY &nbsp;·&nbsp; <b>30-DAY RETURNS</b> &nbsp;·&nbsp; LIFETIME WARRANTY</div>
+
+  <header class="site">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12.8c-2.1 0-3.2-1.9-2.3-3.7.4-.9 1.3-1.5 2.2-1.6.1-1.9 1.6-3.3 3.5-3.3.6 0 1.2.2 1.7.5C11.6 3.6 12.7 3 14 3c1.8 0 3.2 1.4 3.3 3.1.2 0 .4-.1.6-.1 1.9 0 3.5 1.6 3.5 3.5 0 .5-.1.9-.3 1.3.9.4 1.5 1.3 1.5 2.3 0 1.5-1.2 2.7-2.7 2.7H6Z"/><path d="M6.2 12.7V17c0 1.1.9 2 2 2h7.6c1.1 0 2-.9 2-2v-4.3"/><path d="M8.5 20.3c1.1.4 2.3.7 3.5.7s2.4-.3 3.5-.7"/></svg>
+        </div>
+        <div class="logo-text">
+          <span class="the">The</span>
+          <span class="cookery">Cookery</span>
+        </div>
+      </div>
+      <div class="header-cta">
+        <div class="cart-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/><path d="M1.5 2.5h2.4l2.2 12.1a2 2 0 0 0 2 1.7h8.6a2 2 0 0 0 2-1.6l1.5-7.7H5.4"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="product-top" id="buy">
+    <div class="wrap">
+      <div class="breadcrumb"><a href="#">Home</a> &nbsp;›&nbsp; <a href="#">Cookware</a> &nbsp;›&nbsp; 3L Hybrid Sauté Pan</div>
+
+      <div class="product-grid">
+
+        <!-- GALLERY -->
+        <div>
+          <div class="gallery-main-wrap">
+            <div class="gallery-main" id="galleryMain">
+              <svg class="pan-illustration" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="120" cy="150" rx="88" ry="24" fill="#000" opacity="0.35"/>
+                <circle cx="120" cy="128" r="84" fill="#242424" stroke="#3A5A46" stroke-width="2"/>
+                <circle cx="120" cy="128" r="66" fill="#171717"/>
+                <circle cx="120" cy="128" r="66" fill="url(#grid)"/>
+                <rect x="196" y="118" width="70" height="16" rx="8" fill="#242424" stroke="#3A5A46" stroke-width="2"/>
+                <defs>
+                  <pattern id="grid" width="16" height="14" patternUnits="userSpaceOnUse" patternTransform="translate(120 128)">
+                    <path d="M0 0 L8 7 L0 14 M16 0 L8 7 L16 14" stroke="#2E2E2E" stroke-width="1" fill="none"/>
+                  </pattern>
+                </defs>
+              </svg>
+            </div>
+            <svg class="quality-seal" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 50.0,4.0 L 55.69,10.41 L 62.96,5.86 L 66.62,13.61 L 74.87,11.3 L 76.19,19.77 L 84.76,19.88 L 83.65,28.37 L 91.84,30.89 L 88.38,38.73 L 95.53,43.45 L 90.0,50.0 L 95.53,56.55 L 88.38,61.27 L 91.84,69.11 L 83.65,71.63 L 84.76,80.12 L 76.19,80.23 L 74.87,88.7 L 66.62,86.39 L 62.96,94.14 L 55.69,89.59 L 50.0,96.0 L 44.31,89.59 L 37.04,94.14 L 33.38,86.39 L 25.13,88.7 L 23.81,80.23 L 15.24,80.12 L 16.35,71.63 L 8.16,69.11 L 11.62,61.27 L 4.47,56.55 L 10.0,50.0 L 4.47,43.45 L 11.62,38.73 L 8.16,30.89 L 16.35,28.37 L 15.24,19.88 L 23.81,19.77 L 25.13,11.3 L 33.38,13.61 L 37.04,5.86 L 44.31,10.41 Z" fill="#18352B" stroke="#FAF8F3" stroke-width="1"/>
+              <circle cx="50" cy="50" r="34" fill="none" stroke="#FAF8F3" stroke-width="0.8" opacity="0.6"/>
+              <text x="50" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.2" font-weight="700" fill="#FAF8F3" letter-spacing="0.3">RESTAURANT</text>
+              <text x="50" y="48" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.2" font-weight="700" fill="#FAF8F3" letter-spacing="0.3">GRADE</text>
+              <line x1="35" y1="55" x2="65" y2="55" stroke="#FAF8F3" stroke-width="0.6" opacity="0.7"/>
+              <text x="50" y="65" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" letter-spacing="1" fill="#FAF8F3">COOKWARE</text>
+            </svg>
+          </div>
+          <div class="gallery-grid" id="galleryGrid"></div>
+          <p class="photo-note" id="photoNote">[ galeria com fotos reais do produto entra aqui — placeholder por enquanto ]</p>
+        </div>
+
+        <!-- BUY BOX -->
+        <div class="buybox">
+          <h1 id="productTitle">3 Litre Hybrid Sauté Pan with Lid</h1>
+          <div class="reviews-line">★★★★★ <span>3,985 reviews</span></div>
+
+          <div class="launch-banner" id="launchBanner">
+            <span class="launch-banner-label">🔥 Launch price</span>
+            <span class="launch-banner-timer" id="launchTimer">ends in --d --h --m</span>
+          </div>
+
+          <div class="price-row">
+            <span class="price-now" id="buyboxPrice">£39.00</span>
+          </div>
+
+          <div class="mini-trust-row">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Secure checkout</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 9 4.6-.3 8-4 8-9V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>Lifetime warranty</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>30-day guarantee</span>
+          </div>
+
+          <span class="variant-label">Select size</span>
+          <div class="variants">
+            <button class="variant-chip active">3 L</button>
+            <button class="variant-chip">4.3 L</button>
+            <button class="variant-chip">5 L</button>
+            <button class="variant-chip">6.6 L</button>
+          </div>
+
+          <span class="qty-label">Quantity</span>
+          <div class="qty-row">
+            <div class="qty-stepper">
+              <button type="button" id="qtyMinus">–</button>
+              <div class="qty-value" id="qtyValue">1</div>
+              <button type="button" id="qtyPlus">+</button>
+            </div>
+          </div>
+          <p class="promo-note">Buy 2, get the 2nd pan <b>20% off</b> — discount applied automatically at checkout.</p>
+
+          <a href="#" class="btn btn-buynow btn-block" id="buyNowBtn">Buy now</a>
+          <a href="#" class="btn btn-addcart btn-block" style="margin-top:10px;">Add to basket</a>
+
+          <div class="guarantee-callout">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 9 4.6-.3 8-4 8-9V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+            <span><b>30 days, risk-free.</b> Not happy with it? Full refund, no questions asked.</span>
+          </div>
+
+          <div class="trust-list">
+            <div class="item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 9 4.6-.3 8-4 8-9V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+              <span>Lifetime<br>Warranty</span>
+            </div>
+            <div class="item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="14" height="10"/><path d="M15 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="18" cy="19" r="1.6"/></svg>
+              <span>Free<br>Shipping</span>
+            </div>
+            <div class="item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+              <span>30-Day Return<br>Guarantee</span>
+            </div>
+          </div>
+
+          <p class="buy-desc">Brown the chicken thighs, deglaze, then let a ragù or a risotto go the distance — all without changing pans. High straight sides hold the spatter in and the moisture where it belongs. Hob to oven to dishwasher, one pan does it all.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="trust-item"><b>Lifetime</b>warranty on defects</div>
+      <div class="trust-item"><b>Free</b>UK delivery</div>
+      <div class="trust-item"><b>30 days</b>to return, no fuss</div>
+    </div>
+  </div>
+
+  <section class="recipe" id="recipe">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What's inside</span>
+        <h2>Built like a recipe: every part earns its place.</h2>
+      </div>
+      <div class="recipe-card">
+        <div class="recipe-media">
+          <div class="stamp">SERVES<br>4–6</div>
+          <div>
+            <h3>Sear, braise, fry and simmer — in the one pan.</h3>
+            <p>Compared with a plain stainless pan, the hybrid cooking surface gives you real searing power without proteins welding themselves to the base — and clean-up takes minutes, not a scrub brush and a prayer.</p>
+          </div>
+        </div>
+        <div class="recipe-list">
+          <div class="recipe-list-title">The build</div>
+
+          <div class="ingredient">
+            <span class="qty">01</span>
+            <div><h4>Hybrid cooking surface</h4><p>Raised metal ridges for a proper sear, with non-stick channels running between them so food releases clean.</p></div>
+          </div>
+          <div class="ingredient">
+            <span class="qty">02</span>
+            <div><h4>Tri-ply construction</h4><p>Heats quickly and holds its temperature evenly across the base — fewer hot spots, more control.</p></div>
+          </div>
+          <div class="ingredient">
+            <span class="qty">03</span>
+            <div><h4>High, straight sides</h4><p>Deep enough for a proper braise or stew, low enough to still get a good sear before the lid goes on.</p></div>
+          </div>
+          <div class="ingredient">
+            <span class="qty">04</span>
+            <div><h4>Tempered glass lid</h4><p>Steam vent built in, oven-safe, so you can watch dinner without lifting the lid and losing the heat.</p></div>
+          </div>
+          <div class="ingredient">
+            <span class="qty">05</span>
+            <div><h4>Stay-cool handle + helper handle</h4><p>Stainless steel, riveted, with a second handle for carrying it safely from hob to table.</p></div>
+          </div>
+          <div class="ingredient">
+            <span class="qty">06</span>
+            <div><h4>Metal-utensil friendly</h4><p>Oven, dishwasher and induction safe — built to be used daily, not babied.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tech">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How it works</span>
+        <h2>Stainless where it counts. Non-stick where it matters.</h2>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-cell">
+          <span class="num">RIDGES</span>
+          <h4>The raised metal peaks</h4>
+          <p>An etched network of stainless-steel ridges sits proud of the surface — that's what gives the pan its grip on a piece of chicken skin or a scallop, the same way a cast-iron pan would.</p>
+        </div>
+        <div class="tech-cell">
+          <span class="num">VALLEYS</span>
+          <h4>The non-stick channels</h4>
+          <p>Between the ridges, a ceramic non-stick coating sits protected from direct utensil contact — so it keeps working, wash after wash, without flaking into your food.</p>
+        </div>
+        <div class="tech-cell">
+          <span class="num">RESULT</span>
+          <h4>Stainless-level sear</h4>
+          <p>You get the browning and fond that stainless steel is known for, without babysitting the pan the way stainless normally demands.</p>
+        </div>
+        <div class="tech-cell">
+          <span class="num">CLEAN-UP</span>
+          <h4>Dishwasher, done</h4>
+          <p>No seasoning rituals, no special oils. Soak briefly if something's really stuck, then it's dishwasher-safe like the rest of your kitchen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap specs-grid">
+      <div>
+        <div class="section-head" style="margin-bottom:28px;">
+          <span class="eyebrow">The details</span>
+          <h2>Dimensions & specification</h2>
+        </div>
+        <table class="spec-table">
+          <tr><td>Capacity</td><td id="specCapacity">3 Litres</td></tr>
+          <tr><td>Base diameter</td><td id="specDiameter">21 cm</td></tr>
+          <tr><td>Width (incl. handle)</td><td id="specWidth">26 cm</td></tr>
+          <tr><td>Height</td><td id="specHeight">7 cm + 7 cm lid</td></tr>
+          <tr><td>Weight</td><td id="specWeight">1.38 kg + 0.84 kg lid</td></tr>
+          <tr><td>Hob compatibility</td><td>Gas, electric, ceramic, induction</td></tr>
+          <tr><td>Oven-safe</td><td>Pan safe up to 480°C; glass lid (with steam vent) safe up to 200°C</td></tr>
+          <tr><td>Cleaning</td><td>Dishwasher-safe</td></tr>
+        </table>
+        <p class="photo-note" id="specNote" style="display:none; margin-top:12px;">[ medidas estimadas por proporção — confirmar com o fornecedor antes de publicar ]</p>
+      </div>
+      <div>
+        <div class="section-head" style="margin-bottom:28px;">
+          <span class="eyebrow">Looking after it</span>
+          <h2>Care & use</h2>
+        </div>
+        <div class="care-box">
+          <h4>Seasoning</h4>
+          <p>Warm a teaspoon of oil in the pan over medium-low heat for two to three minutes before first use. Performance improves slightly as it naturally re-seasons over time.</p>
+          <h4>Heat guidance</h4>
+          <p>This pan carries heat quickly — start lower than you would on a normal pan. Medium here behaves like medium-high on plain stainless.</p>
+          <h4>Cleaning</h4>
+          <p>Soak in warm soapy water if needed, then wipe or wash as normal. Dishwasher-safe for everyday use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">From the kitchen</span>
+        <h2>What home cooks are saying</h2>
+      </div>
+      <p class="reviews-disclosure">Product reviews supplied directly by our manufacturer, from verified buyers of this same pan.</p>
+      <div class="test-grid">
+        <div class="test-card">
+          <div class="test-card-photo"><img src="images/reviews/review-1.jpg" alt="Hybrid Sauté Pan on an induction hob"></div>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"This sauté pan is a real stunner! It looks so much better than I was expecting. Everything cooks perfectly in it and at a much lower heat setting. I don't use it for sauté, I just use it as a frying pan as I like having deeper sides. Wish I could buy the whole range."</p>
+          <div class="who">— Mrs Fields, Verified Buyer</div>
+        </div>
+        <div class="test-card">
+          <div class="test-card-photo"><img src="images/reviews/review-2.jpg" alt="Hybrid Sauté Pan and lid on a hob"></div>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"This sauté pan is a present for hubby's birthday, it is what he wanted, he really loves it, has not used it yet but loves the look and the weight, quick delivery. I am sure he won't be disappointed when he does use it, I am happy that he is happy."</p>
+          <div class="who">— Michael Dougan, Verified Buyer</div>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"This pan is outstanding! Cooks anything perfect that I put in. Doesn't burn, cooks quick, and so so easy to clean!"</p>
+          <div class="who">— Janet S., Verified Buyer</div>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Great pan that's versatile for all cooking styles. No issues with anything sticking, just treat it like a normal stainless pan."</p>
+          <div class="who">— Rob G., Verified Buyer</div>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"I really like how they perform and the ease of cleaning. I also like that you only need half the energy when cooking."</p>
+          <div class="who">— Rick H., Verified Buyer</div>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Met and exceeded expectations. Perfect for those one-pot meals or anything at all!"</p>
+          <div class="who">— Michelle T., Verified Buyer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap" style="max-width:760px;">
+      <div class="section-head">
+        <span class="eyebrow">Questions</span>
+        <h2>Before you add it to basket</h2>
+      </div>
+
+      <details class="faq-item" open>
+        <summary class="faq-q">Is it really induction-safe?<span class="icon">+</span></summary>
+        <p class="faq-a">Yes — the base is built to work on gas, electric, ceramic and induction hobs.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Can I use metal utensils on it?<span class="icon">+</span></summary>
+        <p class="faq-a">Yes. The non-stick coating sits protected between the raised ridges, so metal spoons and spatulas won't damage it the way they would on a standard non-stick pan.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How long does delivery take?<span class="icon">+</span></summary>
+        <p class="faq-a">Free delivery across the UK — add your confirmed dispatch and delivery window here once it's set with your courier.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What's covered under the warranty?<span class="icon">+</span></summary>
+        <p class="faq-a">Manufacturing defects are covered under our lifetime warranty. Damage from misuse, excessive heat, or improper cleaning isn't included.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <h2>Ready to change what a weeknight dinner looks like?</h2>
+      <p>Free UK delivery. 30 days to try it. A warranty that actually means lifetime.</p>
+      <a href="#buy" class="btn btn-primary" id="finalCtaBtn">Add to basket — £39.00</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">the cookery</div>
+          <p style="max-width:280px; line-height:1.6;">Cookware built for people who cook most nights, not just for show.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#">Shipping</a>
+          <a href="#">Returns</a>
+          <a href="#">Warranty</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© THE COOKERY — ALL RIGHTS RESERVED</span>
+        <span>VISA · MASTERCARD · PAYPAL · APPLE PAY</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sticky-bar" id="stickyBar">
+    <span class="price-now" id="stickyPrice">£39.00</span>
+    <a href="#" class="btn btn-primary" id="stickyBuyBtn">Buy now</a>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-overlay" id="lightboxOverlay"></div>
+    <div class="lightbox-close" id="lightboxClose">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 4l16 16M20 4 4 20"/></svg>
+    </div>
+    <div class="lightbox-arrow lightbox-prev" id="lightboxPrev">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </div>
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="The Cookery — Hybrid Sauté Pan">
+      <span class="lightbox-counter" id="lightboxCounter"></span>
+    </div>
+    <div class="lightbox-arrow lightbox-next" id="lightboxNext">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/><path d="M1.5 2.5h2.4l2.2 12.1a2 2 0 0 0 2 1.7h8.6a2 2 0 0 0 2-1.6l1.5-7.7H5.4"/></svg>
+        Your basket
+      </h3>
+      <div class="cart-close" id="cartClose">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 4l16 16M20 4 4 20"/></svg>
+      </div>
+    </div>
+
+    <div class="cart-delivery">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="14" height="10"/><path d="M15 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="18" cy="19" r="1.6"/></svg>
+      You've got free UK delivery!
+    </div>
+
+    <div class="cart-items" id="cartItems">
+      <!-- populated by JS -->
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-row"><span>Subtotal</span><span id="cartSubtotal">£0.00</span></div>
+      <div class="cart-row"><span>Shipping</span><span>Free</span></div>
+      <div class="cart-row total"><span>Total</span><span id="cartTotal">£0.00</span></div>
+      <button class="cart-checkout" id="cartCheckout">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        Proceed to Payment
+      </button>
+      <div class="cart-secure">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        100% secure, encrypted payment
+      </div>
+      <div class="cart-payments">
+        <span>Visa</span><span>Mastercard</span><span>PayPal</span><span>Apple Pay</span><span>Google Pay</span>
+      </div>
+    </div>
+  </aside>
+
+<script>
+  const bar = document.getElementById('stickyBar');
+  const buyBox = document.querySelector('.buybox');
+  window.addEventListener('scroll', () => {
+    const trigger = buyBox.getBoundingClientRect().top < 0;
+    bar.classList.toggle('show', trigger && window.scrollY > 300);
+  });
+
+  let qty = 1;
+  const qtyValue = document.getElementById('qtyValue');
+  function currentSize(){
+    const activeChip = document.querySelector('.variant-chip.active');
+    return activeChip ? activeChip.textContent.trim() : '3 L';
+  }
+  document.getElementById('qtyMinus').addEventListener('click', ()=>{
+    if(qty > 1){ qty--; qtyValue.textContent = qty; updatePriceDisplays(currentSize()); }
+  });
+  document.getElementById('qtyPlus').addEventListener('click', ()=>{
+    qty++; qtyValue.textContent = qty; updatePriceDisplays(currentSize());
+  });
+
+  document.querySelectorAll('.variant-chip').forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      document.querySelectorAll('.variant-chip').forEach(c=>c.classList.remove('active'));
+      chip.classList.add('active');
+      const size = chip.textContent.trim();
+      updateGallery(size);
+      updatePriceDisplays(size);
+      updateTitle(size);
+      updateSpecs(size);
+    });
+  });
+
+  function updateTitle(size){
+    document.getElementById('productTitle').textContent = `${size} Hybrid Sauté Pan with Lid`;
+  }
+
+  const SPECS_DATA = {
+    "3 L":   { capacity: "3 Litres",   diameter: "21 cm",   width: "26 cm", height: "7 cm + 7 cm lid",     weight: "1.38 kg + 0.84 kg lid", estimated: false },
+    "4.3 L": { capacity: "4.3 Litres", diameter: "24.5 cm", width: "28 cm", height: "7 cm + 6.7 cm lid",   weight: "1.57 kg + 1.06 kg lid", estimated: false },
+    "5 L":   { capacity: "5 Litres",   diameter: "27.5 cm", width: "30 cm", height: "7.9 cm + 6.6 cm lid", weight: "1.72 kg + 1.04 kg lid", estimated: false },
+    "6.6 L": { capacity: "6.6 Litres", diameter: "32 cm",   width: "44 cm", height: "9 cm + 7.7 cm lid",   weight: "1.99 kg + 1.21 kg lid", estimated: false }
+  };
+
+  function updateSpecs(size){
+    const s = SPECS_DATA[size];
+    document.getElementById('specCapacity').textContent = s.capacity;
+    document.getElementById('specDiameter').textContent = s.diameter;
+    document.getElementById('specWidth').textContent = s.width;
+    document.getElementById('specHeight').textContent = s.height;
+    document.getElementById('specWeight').textContent = s.weight;
+    document.getElementById('specNote').style.display = s.estimated ? 'block' : 'none';
+  }
+
+  const PRODUCT_IMAGES = {
+    "3 L": [
+      "images/pan-3l-1.jpg",
+      "images/pan-3l-2.jpg",
+      "images/pan-3l-3.jpg",
+      "images/pan-3l-4.jpg",
+      "images/pan-3l-5.jpg"
+    ],
+    "4.3 L": [
+      "images/pan-4-3l-1.jpg",
+      "images/pan-4-3l-2.jpg",
+      "images/pan-4-3l-3.jpg",
+      "images/pan-4-3l-4.jpg",
+      "images/pan-4-3l-5.jpg"
+    ],
+    "5 L": [
+      "images/pan-5l-1.jpg",
+      "images/pan-5l-2.jpg",
+      "images/pan-5l-3.jpg",
+      "images/pan-5l-4.jpg",
+      "images/pan-5l-5.jpg"
+    ],
+    "6.6 L": [
+      "images/pan-6-6l-1.jpg",
+      "images/pan-6-6l-2.jpg",
+      "images/pan-6-6l-3.jpg",
+      "images/pan-6-6l-4.jpg",
+      "images/pan-6-6l-5.jpg"
+    ]
+  };
+
+  const placeholderGridSVG = `<svg class="pan-illustration small" viewBox="0 0 240 240"><circle cx="120" cy="120" r="70" fill="#242424" stroke="#3A5A46" stroke-width="2"/></svg>`;
+  const placeholderMainSVG = `<svg class="pan-illustration" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="120" cy="150" rx="88" ry="24" fill="#000" opacity="0.35"/><circle cx="120" cy="128" r="84" fill="#242424" stroke="#3A5A46" stroke-width="2"/><circle cx="120" cy="128" r="66" fill="#171717"/></svg>`;
+
+  function updateGallery(size){
+    const mainEl = document.getElementById('galleryMain');
+    const gridEl = document.getElementById('galleryGrid');
+    const noteEl = document.getElementById('photoNote');
+    const images = PRODUCT_IMAGES[size];
+
+    gridEl.innerHTML = '';
+    currentGalleryImages = images && images.length ? images : [];
+
+    if(images && images.length){
+      mainEl.innerHTML = `<img src="${images[0]}" alt="The Cookery — Hybrid Sauté Pan">`;
+      mainEl.onclick = () => openLightbox(0);
+
+      images.slice(1).forEach((src, i)=>{
+        const div = document.createElement('div');
+        div.className = 'gallery-grid-item';
+        div.innerHTML = `<img src="${src}" alt="The Cookery — Hybrid Sauté Pan, photo ${i+2}">`;
+        div.addEventListener('click', () => openLightbox(i + 1));
+        gridEl.appendChild(div);
+      });
+      noteEl.style.display = 'none';
+    } else {
+      mainEl.innerHTML = placeholderMainSVG;
+      mainEl.onclick = null;
+      for(let i=0;i<4;i++){
+        const div = document.createElement('div');
+        div.className = 'gallery-grid-item';
+        div.innerHTML = placeholderGridSVG;
+        gridEl.appendChild(div);
+      }
+      noteEl.style.display = 'block';
+      noteEl.textContent = `[ fotos do tamanho ${size} ainda não enviadas — placeholder por enquanto ]`;
+    }
+  }
+
+  // ===== LIGHTBOX =====
+  let currentGalleryImages = [];
+  let lightboxIndex = 0;
+
+  function openLightbox(index){
+    if(!currentGalleryImages.length) return;
+    lightboxIndex = index;
+    renderLightbox();
+    document.getElementById('lightbox').classList.add('show');
+  }
+  function closeLightbox(){
+    document.getElementById('lightbox').classList.remove('show');
+  }
+  function lightboxNext(){
+    lightboxIndex = (lightboxIndex + 1) % currentGalleryImages.length;
+    renderLightbox();
+  }
+  function lightboxPrev(){
+    lightboxIndex = (lightboxIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+    renderLightbox();
+  }
+  function renderLightbox(){
+    document.getElementById('lightboxImg').src = currentGalleryImages[lightboxIndex];
+    document.getElementById('lightboxCounter').textContent = `${lightboxIndex + 1} / ${currentGalleryImages.length}`;
+  }
+
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxOverlay').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxNext').addEventListener('click', lightboxNext);
+  document.getElementById('lightboxPrev').addEventListener('click', lightboxPrev);
+  document.addEventListener('keydown', (e)=>{
+    if(!document.getElementById('lightbox').classList.contains('show')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowRight') lightboxNext();
+    if(e.key === 'ArrowLeft') lightboxPrev();
+  });
+
+  updateGallery('3 L');
+
+  // Contador do preço de lançamento — data real e fixa, não reinicia sozinho.
+  // Pra estender a promoção no futuro, troque LAUNCH_END_DATE manualmente.
+  const LAUNCH_END_DATE = new Date('2026-08-30T23:59:59+01:00');
+  function updateLaunchTimer(){
+    const banner = document.getElementById('launchBanner');
+    const timerEl = document.getElementById('launchTimer');
+    const diff = LAUNCH_END_DATE - new Date();
+    if(diff <= 0){
+      banner.classList.add('expired');
+      return;
+    }
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+    timerEl.textContent = `ends in ${days}d ${hours}h ${mins}m`;
+  }
+  updateLaunchTimer();
+  setInterval(updateLaunchTimer, 60000);
+
+  const cartCountEl = document.getElementById('cartCount');
+  const SIZE_PRICES = {
+    "3 L": 39.00,
+    "4.3 L": 49.00,
+    "5 L": 69.00,
+    "6.6 L": 90.00
+  };
+  const SIZE_IMAGES = {
+    "3 L": "images/pan-3l-1.jpg",
+    "4.3 L": "images/pan-4-3l-1.jpg",
+    "5 L": "images/pan-5l-1.jpg",
+    "6.6 L": "images/pan-6-6l-1.jpg"
+  };
+
+  function updatePriceDisplays(size){
+    const unitPrice = SIZE_PRICES[size];
+    const total = calcLineTotal(unitPrice, qty);
+    const fmtTotal = fmt(total);
+    const fmtUnit = fmt(unitPrice);
+    document.getElementById('buyboxPrice').textContent = qty >= 2 ? fmtTotal : fmtUnit;
+    document.getElementById('stickyPrice').textContent = qty >= 2 ? fmtTotal : fmtUnit;
+    document.getElementById('finalCtaBtn').textContent = `Add to basket — ${fmtUnit}`;
+  }
+
+  let cartItems = []; // { size, qty, price }
+
+  function fmt(n){ return '£' + n.toFixed(2); }
+
+  // Promoção: 1ª unidade preço cheio, a 2ª tem 20% off — repete a cada par (3ª cheia, 4ª com desconto...)
+  function calcLineTotal(unitPrice, qty){
+    const pairs = Math.floor(qty / 2);
+    const remainder = qty % 2;
+    return (pairs * unitPrice * 1.8) + (remainder * unitPrice);
+  }
+
+  updatePriceDisplays('3 L');
+  updateTitle('3 L');
+  updateSpecs('3 L');
+
+  function renderCart(){
+    const itemsEl = document.getElementById('cartItems');
+    const subtotalEl = document.getElementById('cartSubtotal');
+    const totalEl = document.getElementById('cartTotal');
+    const checkoutBtn = document.getElementById('cartCheckout');
+
+    if(cartItems.length === 0){
+      itemsEl.innerHTML = '<div class="cart-empty">Your basket is empty.<br>Add the sauté pan to get started.</div>';
+      checkoutBtn.disabled = true;
+      checkoutBtn.style.opacity = '0.5';
+      checkoutBtn.style.cursor = 'default';
+    } else {
+      itemsEl.innerHTML = cartItems.map((item, i) => `
+        <div class="cart-item">
+          <div class="cart-item-img">
+            <img src="${SIZE_IMAGES[item.size] || SIZE_IMAGES['3 L']}" alt="Hybrid Sauté Pan — ${item.size}">
+          </div>
+          <div class="cart-item-info">
+            <div class="brand">The Cookery</div>
+            <div class="name">Hybrid Sauté Pan with Lid</div>
+            <div class="meta">Size: ${item.size}<br>Qty: ${item.qty}${item.qty >= 2 ? '<br><span class="promo-tag">2nd pan 20% off</span>' : ''}</div>
+          </div>
+          <div class="cart-item-right">
+            <div class="cart-item-price">${fmt(calcLineTotal(item.price, item.qty))}</div>
+            <div class="cart-item-delete" data-index="${i}">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2m-9 0 1 13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-13"/></svg>
+            </div>
+          </div>
+        </div>
+      `).join('');
+      checkoutBtn.disabled = false;
+      checkoutBtn.style.opacity = '1';
+      checkoutBtn.style.cursor = 'pointer';
+
+      document.querySelectorAll('.cart-item-delete').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          cartItems.splice(Number(btn.dataset.index), 1);
+          renderCart();
+        });
+      });
+    }
+
+    const subtotal = cartItems.reduce((sum, item) => sum + calcLineTotal(item.price, item.qty), 0);
+    subtotalEl.textContent = fmt(subtotal);
+    totalEl.textContent = fmt(subtotal);
+
+    checkoutBtn.onclick = () => {
+      if(cartItems.length === 0) return;
+      const cartData = cartItems.map(item => ({ size: item.size, qty: item.qty }));
+      const encoded = encodeURIComponent(JSON.stringify(cartData));
+      window.location.href = 'checkout.html?cart=' + encoded;
+    };
+
+    const totalQty = cartItems.reduce((sum, item) => sum + item.qty, 0);
+    cartCountEl.textContent = totalQty;
+    cartCountEl.classList.toggle('show', totalQty > 0);
+  }
+
+  function addToCart(size, quantity){
+    const price = SIZE_PRICES[size] ?? SIZE_PRICES["3 L"];
+    const existing = cartItems.find(i => i.size === size);
+    if(existing){ existing.qty += quantity; }
+    else{ cartItems.push({ size, qty: quantity, price }); }
+    renderCart();
+  }
+
+  document.querySelector('.btn-addcart').addEventListener('click', (e)=>{
+    e.preventDefault();
+    const activeChip = document.querySelector('.variant-chip.active');
+    const size = activeChip ? activeChip.textContent.trim() : '3 L';
+    addToCart(size, qty);
+    openCart();
+  });
+
+  function goToCheckoutDirect(){
+    const activeChip = document.querySelector('.variant-chip.active');
+    const size = activeChip ? activeChip.textContent.trim() : '3 L';
+    // "Buy now" pula o carrinho e vai direto pro checkout, só com este item.
+    const cartData = [{ size, qty }];
+    const encoded = encodeURIComponent(JSON.stringify(cartData));
+    window.location.href = 'checkout.html?cart=' + encoded;
+  }
+
+  document.getElementById('buyNowBtn').addEventListener('click', (e)=>{
+    e.preventDefault();
+    goToCheckoutDirect();
+  });
+
+  document.getElementById('stickyBuyBtn').addEventListener('click', (e)=>{
+    e.preventDefault();
+    goToCheckoutDirect();
+  });
+
+  const cartDrawer = document.getElementById('cartDrawer');
+  const cartOverlay = document.getElementById('cartOverlay');
+  function openCart(){ cartDrawer.classList.add('show'); cartOverlay.classList.add('show'); }
+  function closeCart(){ cartDrawer.classList.remove('show'); cartOverlay.classList.remove('show'); }
+
+  document.querySelector('.cart-btn').addEventListener('click', openCart);
+  document.getElementById('cartClose').addEventListener('click', closeCart);
+  cartOverlay.addEventListener('click', closeCart);
+
+  renderCart();
+</script>
+
+</body>
+</html>

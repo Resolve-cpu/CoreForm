@@ -1,0 +1,9 @@
+{
+  "name": "thecookery-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Cookery — landing page, checkout e API de pagamento (Stripe) para deploy na Vercel.",
+  "dependencies": {
+    "stripe": "^16.0.0"
+  }
+}
