@@ -32,10 +32,12 @@
 
   header{background:#fff;border-bottom:1px solid var(--line);padding:14px 18px;position:sticky;top:0;z-index:60;}
   .header-inner{display:flex;align-items:center;justify-content:space-between;}
-  .logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:17px;letter-spacing:-0.02em;color:var(--ink);}
-  .logo-mark{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#f6c5d4,#d68aa5 60%,#e88aa6);flex-shrink:0;}
+  .logo{display:flex;flex-direction:column;line-height:1;}
+  .logo-word{font-weight:900;font-size:19px;letter-spacing:-0.02em;color:var(--ink);}
+  .logo-word .dot{color:#e88aa6;}
+  .logo-sub{font-size:8.5px;letter-spacing:.32em;color:var(--ink);font-weight:600;margin-top:3px;}
   .secure-tag{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--ink-soft);}
-  .secure-tag svg{width:13px;height:13px;}
+  .secure-tag svg{width:15px;height:15px;}
 
   main{padding:18px 16px 0;}
 
@@ -63,7 +65,7 @@
   .os-currency-note{text-align:right;font-size:11px;color:var(--ink-soft);margin-top:-4px;}
 
   .os-pay-icons{display:flex;gap:6px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);}
-  .pay-badge{display:flex;align-items:center;justify-content:center;height:24px;width:38px;border:1px solid var(--line);border-radius:5px;background:#fff;overflow:hidden;}
+  .pay-badge{display:flex;align-items:center;justify-content:center;height:26px;width:40px;border:1px solid var(--line);border-radius:7px;background:#fff;overflow:hidden;}
   .pay-badge svg{width:100%;height:100%;display:block;}
   .os-secure-line{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--ink-soft);margin-top:12px;}
   .os-secure-line svg{width:14px;height:14px;color:var(--green);flex-shrink:0;}
@@ -123,9 +125,12 @@
 <div class="page">
   <header>
     <div class="header-inner">
-      <div class="logo"><span class="logo-mark"></span>CoreForm</div>
+      <div class="logo">
+        <div class="logo-word">CoreForm<span class="dot">.</span></div>
+        <div class="logo-sub">CHECKOUT</div>
+      </div>
       <div class="secure-tag">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5l-8-3Z"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5l-8-3Z"/><path d="M8.5 12.3l2.3 2.3 4.7-5.1"/></svg>
         Secure checkout
       </div>
     </div>
@@ -146,9 +151,9 @@
       </div>
       <div class="os-currency-note">All charges in British Pound (GBP)</div>
       <div class="os-pay-icons">
-        <span class="pay-badge"><svg viewBox="0 0 52 34"><rect width="52" height="34" fill="#1434CB"/><text x="26" y="21" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-style="italic" font-size="14" fill="#fff">VISA</text></svg></span>
-        <span class="pay-badge"><svg viewBox="0 0 52 34"><circle cx="22" cy="17" r="9" fill="#EB001B"/><circle cx="32" cy="17" r="9" fill="#F79E1B"/><path d="M27 10a9 9 0 0 1 0 14 9 9 0 0 1 0-14z" fill="#FF5F00"/></svg></span>
-        <span class="pay-badge"><svg viewBox="0 0 52 34"><rect width="52" height="34" fill="#016FD0"/><text x="26" y="21" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="10" fill="#fff">AMEX</text></svg></span>
+        <span class="pay-badge"><svg viewBox="0 0 52 34"><rect width="52" height="34" fill="#fff"/><text x="26" y="21" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-style="italic" font-size="13" fill="#1A1F71">VISA</text></svg></span>
+        <span class="pay-badge"><svg viewBox="0 0 52 34"><rect width="52" height="34" fill="#fff"/><circle cx="22" cy="17" r="9" fill="#EB001B"/><circle cx="32" cy="17" r="9" fill="#F79E1B"/><path d="M27 10a9 9 0 0 1 0 14 9 9 0 0 1 0-14z" fill="#FF5F00"/></svg></span>
+        <span class="pay-badge"><svg viewBox="0 0 52 34"><rect width="52" height="34" fill="#fff"/><circle cx="22" cy="17" r="9" fill="#0099DF"/><circle cx="32" cy="17" r="9" fill="#ED0006"/><path d="M27 10a9 9 0 0 1 0 14 9 9 0 0 1 0-14z" fill="#6C2A8C"/></svg></span>
       </div>
       <div class="os-secure-line">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
@@ -220,7 +225,7 @@
 
     <div class="checkout-footer">
       <div class="secure-line">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5l-8-3Z"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5l-8-3Z"/><path d="M8.5 12.3l2.3 2.3 4.7-5.1"/></svg>
         256-bit SSL encryption &nbsp;·&nbsp; Secure checkout powered by <b>Stripe</b>
       </div>
       <div class="links">
@@ -250,7 +255,7 @@
   const PRODUCT_NAME = 'CoreForm Pilates Board';
 
   const COLOR_PRICES = { "Pink": 39.00, "Purple": 39.00 };
-  const COLOR_IMAGES = { "Pink": "images/pink/1.webp", "Purple": "images/purple/1.webp" };
+  const COLOR_IMAGES = { "Pink": "images/pink/set.webp", "Purple": "images/purple/1.webp" };
 
   function calcLineTotal(unitPrice, qty){ return unitPrice * qty; }
 
