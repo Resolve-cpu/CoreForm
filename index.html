@@ -19,7 +19,7 @@
 <meta content="nosniff" http-equiv="X-Content-Type-Options"/>
 <meta content="strict-origin-when-cross-origin" http-equiv="Referrer-Policy"/>
 <meta content="camera=(), microphone=(), geolocation=(), payment=()" http-equiv="Permissions-Policy"/>
-<meta content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.tiktok.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://analytics.tiktok.com https://ads.tiktok.com https://analytics-ipv6.tiktokw.us; base-uri 'self'; form-action 'self' https://strivapay.com; upgrade-insecure-requests" http-equiv="Content-Security-Policy"/>
+<meta content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.tiktok.com https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://analytics.tiktok.com https://ads.tiktok.com https://analytics-ipv6.tiktokw.us; frame-src https://js.stripe.com https://hooks.stripe.com; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" http-equiv="Content-Security-Policy"/>
 <!-- DNS Prefetch -->
 <link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
 <!-- Preconnect + fonte Inter (não bloqueia render) -->
@@ -5526,23 +5526,23 @@ document.querySelectorAll('.swatch-wrap').forEach(wrap => {
         checkoutLink.addEventListener('click', (e) => {
           e.preventDefault();
           const items = window._cartItems || [];
-          const pairs = checkoutPairs(items);
-          if (pairs.length === 0) {
+          const cartParam = checkoutCartParam(items);
+          if (!cartParam) {
             window.showEmptyCartToast && window.showEmptyCartToast();
             return;
           }
           const totalUnits = items.reduce((a, it) => a + it.qty, 0);
-          const contentIds = pairs.map(p => p.split(':')[0]);
+          const contentIds = items.map(it => it.colorName);
 
           if (typeof fbq === 'function') {
             fbq('track', 'InitiateCheckout', { content_ids: contentIds, num_items: totalUnits });
           }
           if (typeof ttq !== 'undefined' && ttq.track) {
-            ttq.track('InitiateCheckout', { content_id: 'kehotpilates-' + pairs.join('-'), quantity: totalUnits });
+            ttq.track('InitiateCheckout', { content_id: 'coreform-' + contentIds.join('-'), quantity: totalUnits });
           }
 
-          // Direct redirect to Strivapay — no filter, no delay
-          window.location.href = `https://strivapay.com/c/kehotpilates?v=${pairs.join(',')}`;
+          // Vai para o checkout Stripe, levando a cor e a quantidade escolhidas
+          window.location.href = `checkout.html?cart=${cartParam}`;
         });
       }
 
